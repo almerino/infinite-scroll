@@ -15,6 +15,7 @@ Users can search for images by keywords, with results loading as they scroll, an
 
 - Implement tests with vitest and testing library
 - Add autocomplete support for the search bar
+- Better error handling
 
 ## React + TypeScript + Vite + TailwindCSS
 
