@@ -1,5 +1,5 @@
-const BASE_URL_API = import.meta.env.VITE_BASE_URL_API
-const API_KEY = import.meta.env.VITE_PIXABAY_API_KEY
+const BASE_URL_API = process.env.BASE_URL_API
+const API_KEY = process.env.PIXABAY_API_KEY
 const IMAGE_PER_PAGE = 30
 
 export const fetchImages = async (pageParam: number, query: string) => {
