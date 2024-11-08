@@ -1,3 +1,5 @@
+import { useCallback, useEffect } from 'react'
+
 function Modal({
   open = false,
   onClose = () => {},
@@ -7,6 +9,23 @@ function Modal({
   onClose: () => void
   children: React.ReactElement | undefined
 }) {
+  const escFunction = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose()
+      }
+    },
+    [onClose]
+  )
+
+  useEffect(() => {
+    document.addEventListener('keydown', escFunction, false)
+
+    return () => {
+      document.removeEventListener('keydown', escFunction, false)
+    }
+  }, [escFunction])
+
   return (
     <div className={open ? 'block' : 'hidden'}>
       <div className="fixed inset-0 z-50 flex size-full max-h-full items-center justify-center overflow-y-auto overflow-x-hidden backdrop-blur-sm md:inset-0">

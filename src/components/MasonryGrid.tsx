@@ -14,7 +14,11 @@ function MasonryGrid({ imageCols }: { imageCols: ImageCols }) {
         {Object.entries(imageCols).map(([key, col]) => (
           <div key={key} className="grid auto-rows-max gap-4">
             {col.images.map((img) => (
-              <div key={img.id} onClick={() => setSelectedImage(img)}>
+              <button
+                key={img.id}
+                onClick={() => setSelectedImage(img)}
+                className="rounded-lg focus:border-blue-500 focus:outline focus:outline-2 focus:outline-offset-2 focus:ring"
+              >
                 <Image
                   key={img.id}
                   url={img.webformatURL}
@@ -22,7 +26,7 @@ function MasonryGrid({ imageCols }: { imageCols: ImageCols }) {
                   width={img.webformatWidth}
                   height={img.webformatHeight}
                 />
-              </div>
+              </button>
             ))}
           </div>
         ))}
